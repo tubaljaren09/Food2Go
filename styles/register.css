@@ -1,0 +1,174 @@
+@font-face {
+    font-family: dk;
+    src: url(../fonts/DK\ Cinnabar\ Brush.ttf);
+  }
+*{
+    padding:0;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:62.5%;
+}
+.create{
+    color:#02d0c7;
+    font-size:4rem;
+    font-family:dk;
+    margin-right:10px;
+}
+.account{
+    color:#FC5122;
+    font-size:4rem;
+    font-family:dk;
+}
+.hrone{
+    width:100%;
+    height:3px;
+    background: linear-gradient(-90deg, #FC5122 50%, #02d0c7 50%);
+}
+.hrtwo{
+    width:100%;
+    height:3px;
+    background: linear-gradient(-90deg, #FC5122 50%, #02d0c7 50%);
+}
+.main{
+    width:100%;
+    height:100vh;
+    /* Grid */
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:10% 90%;
+}
+.main .navbar{
+    /* Grid from main */
+    grid-column:1/2;
+    grid-row:1/2;
+    background-image:url('../images/rainbow.jpg');
+    background-size:cover;
+    background-position:center;
+}
+.main .navbar .navbar-container{
+    width:80%;
+    margin:auto;
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.main .navbar .navbar-container .logo-container{
+    display:flex;
+    align-items:center;
+}
+.main .navbar .navbar-container .menu-container{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.main .navbar .navbar-container .menu-container li{
+    font-size:3rem;
+    color:#F2EFEA;
+}
+.main .navbar .navbar-container .menu-container li a{
+    color:#F2EFEA;
+    font-weight:bold;
+}
+.main .hero{
+    /* Grid from main */
+    grid-column:1/2;
+    grid-row:2/3;
+    display:flex;
+    align-items:center;
+    background-image:url('../images/bg.jpg');
+    background-size:auto;
+}
+.main .hero .register-form{
+    width:35%;
+    margin:auto;
+    height:80%;
+    box-shadow:3px 5px 35px 18px #c89c9c;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    background:white;
+    gap:20px;
+    padding:20px;
+    box-sizing:border-box;
+}
+.main .hero .register-form .content{
+    width:100%;
+    text-align:center;
+}
+.main .hero .register-form .content1{
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+}
+.main .hero .register-form .content1 .item input[type=text], input[type=password]{
+    border-radius:10px;
+    border:1px solid #5a5456;
+    padding:5px;
+    outline:none;
+}
+.main .hero .register-form .content1 .item .firstname{
+    color:#ffae00;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 .item .lastname{
+    color:#41ad17;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 label, input{
+    font-size:2rem;
+    display:block;
+}
+.main .hero .register-form .content1 .item .month, option{
+    font-size:2rem;
+}
+.main .hero .register-form .content1 .item .day, option{
+    font-size:2rem;
+}
+.main .hero .register-form .content1 .item .year, option{
+    font-size:2rem;
+}
+.main .hero .register-form .content1 .item .phonenumber{
+    color:#FC5122;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 .item .email{
+    color:#ffae00;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 .item .password{
+    color:#41ad17;
+    padding-bottom:10px;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 .item .cpassword{
+    color:#02d0c7;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 img{
+    padding-left:45px;
+}
+.main .hero .register-form .content1 .item #register{
+    width:250px;
+    padding:5px 0px;
+    border:none;
+    border-radius:10px;
+    background:#02d0c7;
+    color:white;
+    margin-top:20px;
+    font-weight:bold;
+}
+.main .hero .register-form .content1 .item #cancel{
+    font-size:2rem;
+    width:250px;
+    padding:5px 0px;
+    border:none;
+    border-radius:10px;
+    background:#FC5122;
+    color:white;
+    margin-top:10px;
+    font-weight:bold;
+}
