@@ -299,7 +299,7 @@ option {
 }
 @media (min-width: 1650px) {
   .main .hero .register-form {
-    width: 35%;
+    width: 32%;
     margin: auto;
     height: 80%;
     box-shadow: 3px 5px 35px 18px #c89c9c;
