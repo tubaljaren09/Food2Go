@@ -27,7 +27,7 @@
           <div class="card">
             <img src="images/BNT-CHIKTERI.png" class="card-img-top" alt="..." />
             <h1 class="card-title">Best Chicken Teriyaki<br />Classic Bento</h1>
-            <button class="button">Add to cart</button>
+            <button id="chicken" class="button">Add to cart</button>
           </div>
           <div class="card">
             <img src="images/BNT-BEEFMIS.png" class="card-img-top" alt="..." />
@@ -90,12 +90,43 @@
         <div class="cart-container">
           <h1>Your Card</h1>
         </div>
+        <div id="simpleModal" class="modal">
+          <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <form class="login-form">
+              <div class="top">
+                <h1><span class="log">LOG</span><span class="in">IN</span></h1>
+              </div>
+              <div class="content">
+                <label class="email">
+                  E-mail Address:
+                  <input type="text" name="email" />
+                </label>
+              </div>
+              <div class="content">
+                <label class="password">
+                  Password:
+                  <input type="password" name="password" />
+                </label>
+              </div>
+              <div class="content">
+                <a href="#">Forgot password?</a>
+              </div>
+              <div class="content">
+                <input id="login" type="submit" name="login" value="Login" />
+              </div>
+              <div class="content">
+                <button id="signup" type="button">Sign up</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-3.6.0.min.js"
     ></script>
-    <script type="text/javascript" src="./scripts/index.js"></script>
+    <script type="text/javascript" src="./scripts/menu.js"></script>
   </body>
 </html>
