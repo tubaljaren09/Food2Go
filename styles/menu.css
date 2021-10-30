@@ -8,6 +8,18 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 62.5%;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f52b7d;
+  border: 4px solid transparent;
+  background-clip: content-box; /* THIS IS IMPORTANT */
+}
+::-webkit-scrollbar-thumb {
+  background: #281e8e;
+  border: 1px solid #281e8e;
+}
 .log {
   color: #02d0c7;
   font-size: 4rem;
@@ -17,6 +29,39 @@
   color: #fc5122;
   font-size: 4rem;
   font-family: dk;
+}
+.bento-label {
+  font-size: 4rem;
+  position: absolute;
+  top: 10px;
+  left: 235px;
+  background: #02d0c7;
+  color: white;
+  width: 150px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-sizing: border-box;
+}
+.bento-label h1 {
+  font-family: dk;
+  letter-spacing: 3px;
+}
+.cart-label {
+  font-size: 4rem;
+  position: absolute;
+  top: 10px;
+  right: 305px;
+  background: #281e8e;
+  width: 150px;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.cart-label h1 {
+  font-family: dk;
+  letter-spacing: 3px;
 }
 .main {
   width: 100%;
@@ -70,12 +115,14 @@
   gap: 10px;
   background-image: url("../images/bg.jpg");
   background-size: auto;
+  position: relative;
 }
 .main .hero .menu-container {
+  animation: transitionIn 0.75s;
   width: 60%;
   height: 90%;
   background: #02d0c7;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -100,15 +147,98 @@
 .main .hero .menu-container .card .button {
   font-size: 2rem;
   padding: 10px 20px;
+  border-radius: 10px;
+  background: #f52b7d;
+  color: white;
+  border: none;
 }
 .main .hero .menu-container .card .price {
   font-size: 2rem;
 }
 .main .hero .cart-container {
-  width: 20%;
+  animation: transitionIn 0.75s;
+  width: 15%;
   height: 90%;
   background: #281e8e;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .hero .cart-container .cart-top {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .hero .cart-container .cart-top h1 {
+  font-size: 2rem;
+  color: white;
+  font-family: dk;
+  letter-spacing: 3px;
+  margin-top: 20px;
+}
+.main .hero .cart-container .cart-top .order1 {
+  background: white;
+  width: 230px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.main .hero .cart-container .cart-top .order1 h1 {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+  color: #f52b7d;
+  margin-top: 0;
+}
+.main .hero .cart-container .cart-top .order1 .price {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main .hero .cart-container .cart-top .order1 .button-container {
+  display: flex;
+  gap: 10px;
+}
+.main .hero .cart-container .cart-top .order1 .price h1 {
+  color: #ffae00;
+  font-size: 2.2rem;
+}
+.main .hero .cart-container .cart-top .order1 .price h2 {
+  font-size: 2rem;
+}
+.main .hero .cart-container .cart-top .order1 .price .button-container button {
+  font-size: 2rem;
+  width: 30px;
+  height: 20px;
+  line-height: 7px;
+  background: #fc5122;
+  color: #281e8e;
+  border: none;
+  border-radius: 20px;
+}
+.main .hero .cart-container .cart-down {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .hero .cart-container .cart-down h1 {
+  font-size: 2rem;
+  color: white;
+  margin-top: 20px;
+}
+.main .hero .cart-container .cart-down button {
+  font-size: 2rem;
+  font-family: dk;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 100px;
+  background: #fc5122;
+  color: white;
+  border: none;
 }
 .main .hero .modal {
   display: none;
@@ -122,15 +252,21 @@
 }
 .main .hero .modal .modal-content {
   background-color: #f4f4f4;
-  margin: 15% auto;
-  padding: 20px;
-  width: 20%;
+  margin: 2% auto;
+  width: 30%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  border-radius: 10px;
   animation: modalOpen 0.5s;
+}
+.main .hero .modal .modal-content .checkout-container h1 {
+  font-size: 3rem;
+  margin-top: 20px;
 }
 .main .hero .modal .modal-content .closeBtn {
   color: #ccc;
@@ -192,6 +328,231 @@ input[type="password"] {
   color: white;
   font-weight: bold;
 }
+.main .hero .modal .modal-content .send button {
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  background: #41ad17;
+  color: white;
+  font-family: dk;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.main .hero .modal .modal-content .order {
+  background: #02d0c7;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+.main .hero .modal .modal-content .order h1 {
+  font-size: 2rem;
+}
+.main .hero .modal .modal-content .order h2 {
+  font-size: 1.5rem;
+}
+.main .hero .modal .modal-content .deliver {
+  background: #ffae00;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.main .hero .modal .modal-content .deliver h1 {
+  font-size: 2rem;
+}
+.main .hero .modal .modal-content .deliver h2 {
+  font-size: 1.5rem;
+  background: #fc5122;
+  padding: 10px;
+  border-radius: 10px;
+}
+.main .hero .modal .modal-content .payment {
+  background: #ffae00;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.main .hero .modal .modal-content .payment h1 {
+  font-size: 2rem;
+}
+.main .hero .modal .modal-content .payment h2 {
+  font-size: 1.5rem;
+  background: #fc5122;
+  padding: 10px;
+  border-radius: 10px;
+}
+.main .hero .modal .modal-content .deliver .grey {
+  color: #5a5456;
+}
+.main .hero .modal .modal-content .deliver .location-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+.main .hero .modal .modal-content .deliver .location-details .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.main .hero .modal .modal-content .deliver .location-details .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.main .hero .modal .modal-content .deliver .location-details .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .deliver
+  .location-details
+  .container:hover
+  input
+  ~ .checkmark {
+  background-color: #ccc;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .deliver
+  .location-details
+  .container
+  input:checked
+  ~ .checkmark {
+  background-color: #41ad17;
+}
+.main .hero .modal .modal-content .deliver .location-details .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .deliver
+  .location-details
+  .container
+  input:checked
+  ~ .checkmark:after {
+  display: block;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .deliver
+  .location-details
+  .container
+  .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.main .hero .modal .modal-content .payment .payment-details {
+  display: flex;
+  gap: 35px;
+}
+.main .hero .modal .modal-content .payment .payment-details .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.main .hero .modal .modal-content .payment .payment-details .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.main .hero .modal .modal-content .payment .payment-details .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .payment
+  .payment-details
+  .container:hover
+  input
+  ~ .checkmark {
+  background-color: #ccc;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .payment
+  .payment-details
+  .container
+  input:checked
+  ~ .checkmark {
+  background-color: #41ad17;
+}
+.main .hero .modal .modal-content .payment .payment-details .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .payment
+  .payment-details
+  .container
+  input:checked
+  ~ .checkmark:after {
+  display: block;
+}
+.main
+  .hero
+  .modal
+  .modal-content
+  .payment
+  .payment-details
+  .container
+  .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
 @keyframes modalOpen {
   from {
     opacity: 0;
@@ -199,6 +560,17 @@ input[type="password"] {
 
   to {
     opacity: 1;
+  }
+}
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 @media (min-width: 669px) {

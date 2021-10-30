@@ -82,6 +82,7 @@
   background-size: auto;
 }
 .main .hero .register-form {
+  animation: transitionIn 0.75s;
   width: 35%;
   margin: auto;
   height: 80%;
@@ -177,6 +178,17 @@ option {
   color: white;
   margin-top: 10px;
   font-weight: bold;
+}
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 @media (min-width: 869px) {
   .main .hero .register-form {

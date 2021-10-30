@@ -76,6 +76,7 @@
   box-shadow: 3px 5px 35px 18px #c89c9c;
   border-radius: 10px;
   background: white;
+  animation: transitionIn 0.75s;
   /* Grid */
   display: grid;
   grid-template-columns: 40% 60%;
@@ -148,6 +149,17 @@ input[type="password"] {
   background: #fc5122;
   color: white;
   font-weight: bold;
+}
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 @media (min-width: 669px) {
   .main .hero .form-container {

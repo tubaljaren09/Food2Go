@@ -1,3 +1,25 @@
+<?php 
+  require('./database.php');
+
+  if(isset($_POST['register'])){
+    $firstName = $_POST['fname'];
+    $lastName = $_POST['lname'];
+    $month = $_POST['month'];
+    $day = $_POST['day'];
+    $year = $_POST['year'];
+    $phoneNumber = $_POST['phonenumber'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $birthday = "$year-$month-$day";
+
+    $queryRegister = "INSERT INTO users(firstName, lastName, birthday, phoneNumber, email, password)
+                      VALUES ('$firstName', '$lastName', '$birthday', '$phoneNumber', '$email', '$password')";
+    $sqlRegister = mysqli_query($connection, $queryRegister);
+
+    echo "<script>alert('Success')</script>"; 
+    echo "<script>window.location.href='/food2go/register.php'</script>";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -12,18 +34,18 @@
         <div class="navbar-container">
           <div class="logo-container">
             <img src="images/LOGO1.png" />
-            <img src="images/LOGO3.png" />
+            <a href="menu.html"><img src="images/LOGO3.png" /></a>
           </div>
           <ul class="menu-container">
             <li><img src="./images/userlogo.png" /></li>
             <li><a href="index.html">Sign In</a></li>
             <li>/</li>
-            <li><a href="register.html">Create an Account</a></li>
+            <li><a href="register.php">Create an Account</a></li>
           </ul>
         </div>
       </div>
       <div class="hero">
-        <form class="register-form">
+        <form class="register-form" action="/food2go/register.php" method="post">
           <div class="content">
             <h1>
               <span class="create">---CREATE</span
@@ -180,11 +202,11 @@
             <div class="item">
               <label class="password">
                 Password:
-                <input type="text" name="password" />
+                <input type="password" name="password" />
               </label>
               <label class="cpassword">
                 Confirm Password:
-                <input type="text" name="password" />
+                <input type="password" name="cpassword" />
               </label>
               <input
                 id="register"
